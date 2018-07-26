@@ -1,0 +1,24 @@
+private bool AccountCheck(Customers customer)
+        {
+           bool isUserExisted = false;
+           string connectionString = @"server=PC-301-22\SQLEXPRESS; database=BADB; integrated security=true";
+
+           SqlConnection con = new SqlConnection(connectionString);
+
+           string query = @"Select * from Customers where AccountNumber= '" + customer.AccountNumber + "'";
+
+           SqlCommand command = new SqlCommand(query, con);
+
+           con.Open();
+            SqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr.HasRows == true)
+                {
+                     MessageBox.Show(" Already exist");
+                    isUserExisted = true;
+                    break;
+                }
+            }
+            return isUserExisted;
+        } 
