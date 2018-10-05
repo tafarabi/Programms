@@ -20,7 +20,8 @@ int findPossibleMoves(int mat[n][m], int p, int q)
 
         if ((((p-x)*(p-x))+((q-y)*(q-y)))==5 && x > 0 && y > 0 && x < n && y < m
             && mat[x][y] == 0)
-            count++;
+           count++;
+
 
 
     }
@@ -37,21 +38,17 @@ int main()
                       { 0, 0, 0, 0, 0, 0, 0, 0 },
                       { 0, 0, 0, 0, 0, 0, 0, 0 },
                       { 0, 0, 0, 0, 0, 0, 0, 0 },
-                      { 0, 0, 0, 0, 0, 0, 0, 0 }
-                       };
+                      { 0, 0, 0, 0, 0, 0, 0, 0 }};
 
     int p, q,t;
-    cin>>t;
+    scanf("%d",&t);
 if(t>=1 && t<=64)
 {
     for(int i=0;i<t;i++){
-    cin>>p>>q;
+    scanf("%d %d",&p,&q);
     if(p>=1&&p<=8&&q>=1&&q<=8)
     printf("Case %d: %d\n", i+1, findPossibleMoves(mat, p, q));
     }
 }
-
-
-
     return 0;
 }
